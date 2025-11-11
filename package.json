@@ -1,0 +1,19 @@
+{
+  "name": "weekly-db-updater",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev -n init",
+    "dev:seed": "tsx scripts/update-employees.ts",
+    "dev:seed:dry": "tsx scripts/update-employees.ts --dry-run"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3"
+  }
+}

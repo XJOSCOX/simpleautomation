@@ -1,0 +1,27 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // For SQL Server. Example in .env.example
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id           String   @id @default(uuid())
+  employeeNum  String?  @unique
+  email        String   @unique
+  firstName    String
+  lastName     String
+  department   String?
+  role         String   @default("Staff")
+  hoursWorked  Float    @default(0)  // decimals supported
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([email])
+  @@index([employeeNum])
+}
