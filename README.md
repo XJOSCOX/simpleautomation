@@ -1,0 +1,2 @@
+# simpleautomation
+Just testing
